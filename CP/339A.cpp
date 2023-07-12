@@ -19,7 +19,6 @@ void sort(string s){
     }
     cout << "Last number in string is : " << another << endl;
     another = "";
-    
 }
 
 
