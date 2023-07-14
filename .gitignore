@@ -1,6 +1,7 @@
 * 
 !*/
 !*.*
+.exe
 
 #  * tells git to ignore everything.
 #  !*/ then unignores anything that is a directory. This is crucial.
