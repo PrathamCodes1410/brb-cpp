@@ -2,52 +2,40 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool checkArray(int count1[26], int count2[26]){
-    for (int i = 0; i < 26; i++)
-    {
-        cout << "Checking!" << endl;
-        if(count1[i] != count2[i]){
-            return false;
-        }
-    }
-    
-    return true;
-}
+bool check(string s1, string s2)
+{
 
-
-bool check(string s1, string s2){
-
-    int len1 = s1.length();  // windowSize
+    int len1 = s1.length();
     int len2 = s2.length();
-    int count1[26] = {0};
-    int count2[26] = {0};
-
-    for (int i = 0; i < len1; i++)
+    vector<int> count(26, 0), count2(26, 0);
+    for (int i = 0; i < s1.length(); i++)
     {
-        int index = s1[i] - 'a';
-        count1[index]++;
+        count[s1[i] - 'a']++;
     }
-    
-    for (int i = 0; i < len2 - len1 + 1; i++)
+    int i = 0, j = 0;
+    while (j < len2)
     {
-        int j = 0;
-        while(j < len1){
-            int index = s2[i + j] - 'a';
-            count2[index]++;
+
+        if ((j - i) < len1) // len1 is the window size
+        {
+            count2[s2[j] - 'a']++;
             j++;
         }
-
-        if(checkArray(count1, count2)){
+        else
+        {
+            count2[s2[i] - 'a']--; // removing previous character count from the array, as window is moved
+            i++;                   // moving the window towards right hand side
+        }
+        if (count2 == count)
+        {
             return true;
         }
     }
-    
     return false;
-   
 }
 
-
-int main(){
+int main()
+{
 
     string s1;
     string s2;
@@ -59,5 +47,4 @@ int main(){
 
     bool ans = check(s1, s2);
     cout << "Does it exist : " << ans << endl;
-
 }
