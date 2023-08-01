@@ -3,22 +3,11 @@
 using namespace std;
 
 int main(){
-    int count;
-    cin >> count;
-    int arr[25];
-    for (int i = 0; i < count; i++)
-    {
-        cin >> arr[i];
-    }
+    int s = 0;
+    int e = 7;
 
-    sort(arr, arr + count);
-    
+    int mid = s + e / 2;
 
-    for (int i = 0; i < count; i++)
-    {
-        cout << arr[i] << endl;
-    }
-
-    cout << (arr[count - 1] - arr[0]) << endl;
+    cout << mid << endl;
     
 }
