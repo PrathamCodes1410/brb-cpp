@@ -24,7 +24,5 @@ int main(){
             t = false;
         }
     }
-
     cout << count << endl;
-
 }
