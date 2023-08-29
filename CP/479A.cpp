@@ -13,7 +13,7 @@ int main(){
     }
     long long large = 0;
 
-    for (long long i = 0; i < 4; i++)
+    for (long long i = 0; i < 5; i++)
     {
         long long sum = 0;
         if(i == 0){
@@ -27,6 +27,9 @@ int main(){
         }
         else if(i == 3){
             sum = v[0] + v[1] + v[2];
+        }
+        else if(i == 4){
+            sum = v[0] * (v[1] + v[2]);
         }
 
         if(sum > large){
